@@ -1,15 +1,14 @@
+import argparse
 import json
 import sys
-import os
-import argparse
 
-from fantasy_scout.build_class_for_json import build_class_for_json
-from fantasy_scout.entities import Team, Player
-from fantasy_scout.player_cache import PlayerCache
-from fantasy_scout.api import FantasyPremierLeagueApi
-from fantasy_scout import ranking_functions
-from fantasy_scout import building_functions
+import os
 from clint.textui import progress
+
+from fantasy_scout import ranking_functions, building_functions
+from fantasy_scout.api import FantasyPremierLeagueApi
+from fantasy_scout.api.player_cache import PlayerCache
+from fantasy_scout.entities import Team, Player
 
 
 class FPLException(Exception):

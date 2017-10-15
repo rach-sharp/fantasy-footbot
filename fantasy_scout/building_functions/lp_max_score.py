@@ -34,13 +34,7 @@ def lp_max_score_build(players: list):
 
     best_team_problem.solve()
 
-    for v in best_team_problem.variables():
-        print(v.name, '=', v.varValue)
-
     selected_player_ids = [i.name for i in best_team_problem.variables() if i.varValue == 1]
-    print(selected_player_ids)
-
-    print('objective=', pulp.value(best_team_problem.objective))
 
     return [p for p in players if str(p.id) in selected_player_ids]
 

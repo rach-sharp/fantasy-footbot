@@ -32,7 +32,7 @@ class FantasyPremierLeagueApi(object):
         api_data = cls._get_full_api_data()
         team_names = {}
         for team in api_data['teams']:
-            team_names[team['id']] = team['name']
+            team_names[team['code']] = team['name']
         return team_names
 
     @classmethod

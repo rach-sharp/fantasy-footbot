@@ -83,4 +83,5 @@ class Player(object):
         return Position(self.element_type)
 
     def __str__(self):
-        return '{:<35}  {:>4} mil  {} {}'.format(self.full_name, self.now_cost/10, self.team, self.position.name)
+        return '{:<35}  {:>4} mil, {:>3} points  {} {}'.format(self.full_name, self.now_cost/10, self.total_points,
+                                                               self.team, self.position.name)

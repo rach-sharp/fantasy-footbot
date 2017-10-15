@@ -48,7 +48,10 @@ class Team(object):
         return sum([p.now_cost/10 for p in players]) <= max_cost
 
     def __str__(self):
-        info_lines = [str(colored.yellow('Total Cost: {}'.format(sum([p.now_cost/10 for p in self.players]))))]
+        info_lines = [str(colored.yellow('Total Cost: {:.1f}, Points: {}'.format(
+            sum([p.now_cost/10 for p in self.players]),
+            sum([self.players[0].total_points * 2] + [p.total_points for p in self.players[1:-4]])
+        )))]
         player_lines = [str(colored.red('Players'))]
         for player_no, player in enumerate(self.players):
             player_lines.append("{:>2}. {}".format(player_no+1, player))

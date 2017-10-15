@@ -25,7 +25,7 @@ def _build_arg_parser():
                         default=os.path.join(os.path.dirname(__file__), 'Teamfile.json'))
     parser.add_argument('-rf', '--rankingfunc', type=str,
                         help='choose the function to rank players with',
-                        choices=['ppg', 'last_season'],
+                        choices=['ppg', 'rach'],
                         default='ppg')
     parser.add_argument('-bf', '--buildingfunc', type=str,
                         help='choose the function to build a team of players with',
@@ -107,6 +107,8 @@ def _get_players_from_api(premier_league_only=True, add_team_names=True):
 def _get_ranking_func(ranking_func_str):
     if ranking_func_str == "ppg":
         ranking_func = ranking_functions.points_per_game_rank
+    elif ranking_func_str == "rach":
+        ranking_func = ranking_functions.rach_rank
     else:
         raise FPLException("Unrecognised ranking function")
     return ranking_func
@@ -137,4 +139,4 @@ def _build_team(players, building_func):
 # come up with a team which fits within the Fantasy Football requirements
 # save the Team to file
 
-# cli_main(['scout'])
+cli_main(['scout', '-rf', 'rach'])

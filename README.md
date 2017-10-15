@@ -10,8 +10,8 @@ Usage:
 ~~~
 fpl scout
 fpl --help
-fpl -rf ppg # use the points per game ranking function
-fpl -bf lp_max # use the lp_max building function
+fpl scout -rf ppg # use the points per game ranking function, for example
+fpl scout -bf lp_max # use the lp_max building function, for example
 ~~~
 
 Done. Enjoy your free fantasy football points.

@@ -74,6 +74,7 @@ def fpl_scout(args):
     players = _get_players_from_api()
     ranking_func = _get_ranking_func(args.rankingfunc)
     _rank_players(players, ranking_func)
+    players.sort(key=lambda p: p.ranking_score)
     building_func = _get_building_func(args.buildingfunc)
     team = _build_team(players, building_func)
     print(team)
@@ -137,3 +138,4 @@ def _build_team(players, building_func):
 # come up with a team which fits within the Fantasy Football requirements
 # save the Team to file
 
+# cli_main(['scout'])

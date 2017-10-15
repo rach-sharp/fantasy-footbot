@@ -1,4 +1,4 @@
-### Fantasy Premier League Scout &#9917; &#127942;
+### Fantasy Premier League Scout :soccer: :trophy:
 
 For people who can't pick football players good and want to learn to do other football manager stuff good too
 

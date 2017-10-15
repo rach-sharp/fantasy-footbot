@@ -1,0 +1,3 @@
+class {class_name}(object):
+    def __init__(self, json_data):
+        {init_body}

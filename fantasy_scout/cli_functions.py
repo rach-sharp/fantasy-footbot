@@ -2,6 +2,8 @@ import json
 import sys
 import os
 import argparse
+
+from fantasy_scout.build_class_for_json import build_class_for_json
 from fantasy_scout.entities import Team, Player
 from fantasy_scout.player_cache import PlayerCache
 from fantasy_scout.api import FantasyPremierLeagueApi
@@ -128,8 +130,10 @@ def _build_team(players, building_func):
     selected_players = building_func(players)
     return Team(selected_players)
 
+
 # get all the players
 # load the data into Player objects
 # compute a score of goodness for each Player
 # come up with a team which fits within the Fantasy Football requirements
 # save the Team to file
+

@@ -22,6 +22,7 @@ class Team(object):
         assert(self.correct_team_counts(players))
         assert(self.team_cost_within_bounds(players))
         self.players = players
+        self.players.sort(key=lambda p: p.ranking_score, reverse=True)
 
     @classmethod
     def correct_position_counts(cls, players):
@@ -47,7 +48,9 @@ class Team(object):
         return sum([p.now_cost/10 for p in players]) <= max_cost
 
     def __str__(self):
-        lines = [str(colored.red('Player'))]
-        for player in self.players:
-            lines.append(str(player))
+        info_lines = [str(colored.yellow('Total Cost: {}'.format(sum([p.now_cost/10 for p in self.players]))))]
+        player_lines = [str(colored.red('Players'))]
+        for player_no, player in enumerate(self.players):
+            player_lines.append("{:>2}. {}".format(player_no+1, player))
+        lines = info_lines + player_lines
         return '\n'.join(lines)

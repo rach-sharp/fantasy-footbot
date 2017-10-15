@@ -1,1 +1,1 @@
-from .points import points_rank
+from .points_per_game import points_per_game_rank

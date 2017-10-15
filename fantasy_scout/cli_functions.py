@@ -25,11 +25,11 @@ def _build_arg_parser():
                         default=os.path.join(os.path.dirname(__file__), 'Teamfile.json'))
     parser.add_argument('-rf', '--rankingfunc', type=str,
                         help='choose the function to rank players with',
-                        choices=['points', 'last_season'],
-                        default='points')
+                        choices=['ppg', 'last_season'],
+                        default='ppg')
     parser.add_argument('-bf', '--buildingfunc', type=str,
                         help='choose the function to build a team of players with',
-                        choices=['basic', 'lp_max'],
+                        choices=['lp_max'],
                         default='lp_max')
     return parser
 
@@ -105,8 +105,8 @@ def _get_players_from_api(premier_league_only=True, add_team_names=True):
 
 
 def _get_ranking_func(ranking_func_str):
-    if ranking_func_str == "points":
-        ranking_func = ranking_functions.points_rank
+    if ranking_func_str == "ppg":
+        ranking_func = ranking_functions.points_per_game_rank
     else:
         raise FPLException("Unrecognised ranking function")
     return ranking_func
@@ -119,9 +119,7 @@ def _rank_players(players, ranking_func):
 
 
 def _get_building_func(building_func_str):
-    if building_func_str == "basic":
-        building_func = building_functions.basic_build
-    elif building_func_str == "lp_max":
+    if building_func_str == "lp_max":
         building_func = building_functions.lp_max_score_build
     else:
         raise FPLException("Unrecognised building function")

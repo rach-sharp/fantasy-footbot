@@ -32,10 +32,14 @@ def lp_max_score_build(players: list):
     for team in set([p.team for p in players]):
         best_team_problem += _build_team_constraint(players, team, player_variables)
 
+    # TODO captain constraint, consider that captain should be better invested into
+    # TODO bench constraint, consider that the bottom 4 players aren't as important
+
     best_team_problem.solve()
 
     selected_player_ids = [i.name for i in best_team_problem.variables() if i.varValue == 1]
 
+    # TODO might be a better way of going from ids to chosen players
     return [p for p in players if str(p.id) in selected_player_ids]
 
 

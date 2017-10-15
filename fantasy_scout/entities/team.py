@@ -44,7 +44,7 @@ class Team(object):
 
     @staticmethod
     def team_cost_within_bounds(players, max_cost=100):
-        return sum([p.now_cost for p in players]) <= max_cost
+        return sum([p.now_cost/10 for p in players]) <= max_cost
 
     def __str__(self):
         lines = [str(colored.red('Player'))]

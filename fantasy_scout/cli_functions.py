@@ -30,8 +30,8 @@ def _build_arg_parser():
                         default='points')
     parser.add_argument('-bf', '--buildingfunc', type=str,
                         help='choose the function to build a team of players with',
-                        choices=['basic'],
-                        default='basic')
+                        choices=['basic', 'lp_max'],
+                        default='lp_max')
     return parser
 
 
@@ -122,6 +122,8 @@ def _rank_players(players, ranking_func):
 def _get_building_func(building_func_str):
     if building_func_str == "basic":
         building_func = building_functions.basic_build
+    elif building_func_str == "lp_max":
+        building_func = building_functions.lp_max_score_build
     else:
         raise FPLException("Unrecognised building function")
     return building_func

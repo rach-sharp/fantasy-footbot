@@ -139,4 +139,4 @@ def _build_team(players, building_func):
 # come up with a team which fits within the Fantasy Football requirements
 # save the Team to file
 
-cli_main(['scout', '-rf', 'rach'])
+c# li_main(['scout', '-rf', 'rach'])

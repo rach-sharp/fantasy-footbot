@@ -1,7 +1,8 @@
 from fantasy_scout.entities.player import Player
 
 
-def rach_rank(player: Player, prev_season_name="2016/17", games_per_season=38):
+def rach_rank(player: Player, prev_season_name="2017/18", games_per_season=38):
+    print(player)
     # undesirable statuses are s, i, d - suspended, injured, d... dead???
     # a = available
     if player.status != 'a':
@@ -20,7 +21,10 @@ def rach_rank(player: Player, prev_season_name="2016/17", games_per_season=38):
 
     # player average points per game, as long as player has seen sufficient play
     # if early weeks in season, use last year's data in weighted function
-    current_season_ppg = player.total_points / len(player.history)
+    if len(player.history) > 0:
+        current_season_ppg = player.total_points / len(player.history)
+    else:
+        current_season_ppg = 0
 
     if len(player.history) < 5:
         # use a mix of last season's performance data to reduce variance from lack of info

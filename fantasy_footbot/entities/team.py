@@ -1,7 +1,7 @@
 from collections import defaultdict
 from clint.textui import colored
 
-from fantasy_scout.entities.player import Position
+from fantasy_footbot.entities.player import Position
 
 
 class Team(object):

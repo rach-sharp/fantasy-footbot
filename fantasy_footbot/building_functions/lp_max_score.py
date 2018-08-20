@@ -1,7 +1,7 @@
 import pulp
 
-from fantasy_scout.entities.player import Position
-from fantasy_scout.entities.team import Team
+from fantasy_footbot.entities.player import Position
+from fantasy_footbot.entities.team import Team
 
 
 def lp_max_score_build(players: list):

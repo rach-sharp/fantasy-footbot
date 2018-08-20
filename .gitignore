@@ -3,3 +3,4 @@ build
 cached_api_data
 Teamfile.json
 *.egg-info
+.idea

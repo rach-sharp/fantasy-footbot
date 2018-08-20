@@ -1,4 +1,4 @@
-from fantasy_scout.entities.player import Player
+from fantasy_footbot.entities.player import Player
 
 
 def rach_rank(player: Player, prev_season_name="2017/18", games_per_season=38):

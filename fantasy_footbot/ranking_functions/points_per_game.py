@@ -1,4 +1,4 @@
-from fantasy_scout.entities.player import Player
+from fantasy_footbot.entities.player import Player
 
 
 def points_per_game_rank(player: Player):
